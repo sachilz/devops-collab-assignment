@@ -100,9 +100,7 @@ This pipeline improves reliability and minimizes manual deployment errors.
 
 ## 🌐 Live Demo
 🔗 **Live Website URL:**  
-https://wanderlust.vercel.app  
-
-*(Replace with your actual deployment link)*
+devops-collab-assignment.vercel.app
 
 ---
 
