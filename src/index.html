@@ -12,15 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
+    <!-- Tailwind Config -->
     
 
+    <!-- Custom CSS -->
     
-
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Tailwind config (must be after tailwindcdn) -->
-    <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased overflow-x-hidden selection:bg-primary selection:text-white">
 
@@ -175,24 +173,114 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-24 bg-surface overflow-hidden relative">
-             <div class="absolute inset-0 bg-dark/50"></div>
-             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="relative group" data-aos="fade-right">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-primary to-indigo-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Traveler" class="tilt-card rounded-2xl shadow-2xl relative z-10 w-full object-cover h-[500px] grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
+        <!-- Services Section Redesigned V3 -->
+        <section id="services" class="py-32 bg-dark relative overflow-hidden">
+            <!-- Dynamic Background -->
+            <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] animate-blob mix-blend-screen pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[100px] animate-blob animation-delay-4000 mix-blend-screen pointer-events-none"></div>
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-20">
+                    
+                    <!-- Image Side (Left) -->
+                    <div class="w-full lg:w-1/2 relative perspective-1000" data-aos="fade-right">
+                        <!-- Main Image Card -->
+                        <div class="relative z-10 group">
+                             <div class="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-700 hover:shadow-primary/20 transform hover:scale-[1.02]">
+                                 <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Luxury Travel" class="w-full h-[650px] object-cover transition-transform duration-1000 group-hover:scale-110">
+                                 <!-- Gradient Overlay -->
+                                 <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80"></div>
+                                 
+                                 <!-- Bottom Info -->
+                                 <div class="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                     <div class="flex items-center gap-2 mb-2">
+                                         <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-bold uppercase backdrop-blur-md border border-green-500/20">Verified Safe</span>
+                                         <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase backdrop-blur-md border border-primary/20">Premium</span>
+                                     </div>
+                                     <h3 class="text-2xl font-bold text-white">Experience True Freedom</h3>
+                                 </div>
+                            </div>
+
+                            <!-- Floating Widget 1: Live Chat -->
+                            <div class="absolute top-12 -right-8 liquid-glass p-4 rounded-2xl animate-float hidden md:flex items-center gap-3 border-l-4 border-l-primary">
+                                <div class="relative">
+                                    <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden border-2 border-white/20">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-slate-900 animate-pulse"></div>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Support Agent</p>
+                                    <p class="text-white text-xs font-bold">"How can I help you?"</p>
+                                </div>
+                            </div>
+
+                            <!-- Floating Widget 2: Safety Shield -->
+                            <div class="absolute bottom-24 -left-8 liquid-glass p-4 rounded-2xl animate-float-delayed flex items-center gap-3 border-r-4 border-r-green-500">
+                                <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 text-lg">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Insurance</p>
+                                    <p class="text-white text-xs font-bold">Full Coverage Included</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Glowing Back -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-[2.5rem] blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000 -z-10 animate-pulse-slow"></div>
                     </div>
-                    <div data-aos="fade-left">
-                        <h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3">Why Choose Us</h2>
-                        <h3 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-primary hover:to-white transition-all duration-300 cursor-default">We Make Your Travel <br> <span class="text-slate-500 hover:text-white transition-colors">Comfortable & Safe</span></h3>
-                        <p class="text-slate-400 mb-8 text-lg font-light">We don't just book trips; we craft memories. Our team of experts ensures every detail is perfect.</p>
-                        <ul class="space-y-6">
-                             <li class="flex items-center group p-4 rounded-xl transition-all duration-300 hover:bg-white/5 cursor-default border border-transparent hover:border-white/10" data-aos="fade-up" data-aos-delay="100"><div class="mr-4 w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-check"></i></div><span class="text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">Best Price Guarantee</span></li>
-                             <li class="flex items-center group p-4 rounded-xl transition-all duration-300 hover:bg-white/5 cursor-default border border-transparent hover:border-white/10" data-aos="fade-up" data-aos-delay="200"><div class="mr-4 w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-earth-americas"></i></div><span class="text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">Worldwide Coverage</span></li>
-                             <li class="flex items-center group p-4 rounded-xl transition-all duration-300 hover:bg-white/5 cursor-default border border-transparent hover:border-white/10" data-aos="fade-up" data-aos-delay="300"><div class="mr-4 w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-headset"></i></div><span class="text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">24/7 Premium Support</span></li>
-                        </ul>
+
+                    <!-- Text Side (Right) -->
+                    <div class="w-full lg:w-1/2" data-aos="fade-left">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="h-px w-12 bg-primary"></span>
+                            <span class="text-primary text-xs font-bold tracking-[0.2em] uppercase">Why Choose Wanderlust</span>
+                        </div>
+                        
+                        <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+                            We Redefine <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-indigo-500 animate-gradient-xy bg-[length:200%_auto]">Comfort & Safety</span>
+                        </h2>
+                        
+                        <p class="text-slate-400 text-lg mb-12 leading-relaxed font-light">
+                            Your journey should be a story of discovery, not logistics. We weave together luxury, safety, and authentic experiences into a seamless tapestry of memories.
+                        </p>
+
+                        <!-- Holographic Feature Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Feature 1 -->
+                            <div class="group liquid-glass p-6 rounded-2xl hover:bg-primary/5 transition-all duration-500 hover:-translate-y-1 border-t border-white/10 hover:border-primary/30">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-transparent flex items-center justify-center text-primary text-2xl mb-4 group-hover:scale-110 transition-transform duration-500 group-hover:rotate-6">
+                                    <i class="fa-solid fa-plane-circle-check"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">Seamless Travel</h4>
+                                <p class="text-slate-400 text-sm">VIP handling from your doorstep to your destination and back.</p>
+                            </div>
+
+                            <!-- Feature 2 -->
+                            <div class="group liquid-glass p-6 rounded-2xl hover:bg-primary/5 transition-all duration-500 hover:-translate-y-1 border-t border-white/10 hover:border-primary/30">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/20 to-transparent flex items-center justify-center text-green-400 text-2xl mb-4 group-hover:scale-110 transition-transform duration-500 group-hover:rotate-6">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">Verified Safety</h4>
+                                <p class="text-slate-400 text-sm">24/7 global support and thoroughly vetted accommodations.</p>
+                            </div>
+                            
+                            <!-- Feature 3 -->
+                            <div class="group liquid-glass p-6 rounded-2xl hover:bg-primary/5 transition-all duration-500 hover:-translate-y-1 border-t border-white/10 hover:border-primary/30 sm:col-span-2">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-transparent flex items-center justify-center text-purple-400 text-2xl mr-4 group-hover:scale-110 transition-transform duration-500 group-hover:rotate-6 shrink-0">
+                                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-white mb-2">Curated Experiences</h4>
+                                        <p class="text-slate-400 text-sm">Access to exclusive events and hidden gems inaccessible to the general public.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -210,7 +298,7 @@
                      <div class="group relative w-full max-w-sm mx-auto md:mx-0 liquid-glass rounded-3xl p-2 border-0" data-aos="fade-up" data-aos-delay="100">
                         <div class="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                             <div class="team-card-inner h-full w-full">
-                                <img src="images/Sachintha.jpeg" alt="David" class="w-full h-full object-cover">
+                                <img src="images/Sachintha.jpeg" alt="David" class="w-full h-full object-cover" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
                             </div>
                             <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
                             <div class="absolute bottom-6 left-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
@@ -222,7 +310,7 @@
                      <div class="group relative w-full max-w-sm mx-auto md:mx-0 liquid-glass rounded-3xl p-2 border-0" data-aos="fade-up" data-aos-delay="200">
                         <div class="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                             <div class="team-card-inner h-full w-full">
-                                <img src="images/Dinithi.jpeg" alt="Sarah" class="w-full h-full object-cover">
+                                <img src="images/Dinithi.jpeg" alt="Sarah" class="w-full h-full object-cover" onerror="this.src='https://randomuser.me/api/portraits/women/44.jpg'">
                             </div>
                             <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
                             <div class="absolute bottom-6 left-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
@@ -396,7 +484,7 @@
                     <div class="liquid-glass p-3 rounded-3xl group hover:-translate-y-2 transition-all duration-300 hover:border-primary/50 relative hover:shadow-[0_0_30px_rgba(56,189,248,0.2)]" data-aos="fade-up" data-aos-delay="0">
                         <div class="absolute top-6 right-6 z-20 font-bold text-4xl text-white/10 group-hover:text-primary/20 transition-colors duration-300">01</div>
                         <div class="relative h-96 rounded-2xl overflow-hidden mb-4 team-card-inner">
-                            <img src="images/Sachintha.jpeg" class="w-full h-full object-cover">
+                            <img src="images/Sachintha.jpeg" class="w-full h-full object-cover" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                             <div class="absolute bottom-4 left-4">
                                 <h4 class="text-xl font-bold text-white group-hover:text-primary transition-colors">D.M.S Dilshan Madhushankha</h4>
@@ -416,7 +504,7 @@
                     <div class="liquid-glass p-3 rounded-3xl group hover:-translate-y-2 transition-all duration-300 hover:border-primary/50 relative hover:shadow-[0_0_30px_rgba(56,189,248,0.2)]" data-aos="fade-up" data-aos-delay="100">
                         <div class="absolute top-6 right-6 z-20 font-bold text-4xl text-white/10 group-hover:text-primary/20 transition-colors duration-300">02</div>
                         <div class="relative h-96 rounded-2xl overflow-hidden mb-4 team-card-inner">
-                            <img src="images/Dinithi.jpeg" class="w-full h-full object-cover">
+                            <img src="images/Dinithi.jpeg" class="w-full h-full object-cover" onerror="this.src='https://randomuser.me/api/portraits/women/44.jpg'">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                             <div class="absolute bottom-4 left-4">
                                 <h4 class="text-xl font-bold text-white group-hover:text-primary transition-colors">D.P.D Sharadha Pathirana</h4>
@@ -468,8 +556,8 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-
-    <!-- Local JS -->
-    <script src="app.js" defer></script>
+    <!-- App Logic -->
+    
+  <script src="script.js"></script>
 </body>
 </html>
