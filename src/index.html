@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Travels - Explore the World</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    
+
+    
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind config (must be after tailwindcdn) -->
+    <script src="tailwind-config.js"></script>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 liquid-glass border-b-0" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer group" onclick="navigateTo('home')">
+                    <div class="relative">
+                        <i class="fa-solid fa-plane-departure text-primary text-3xl transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        <div class="absolute -inset-2 bg-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <span class="font-bold text-2xl text-white tracking-tight">Wander<span class="text-primary">lust</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <button onclick="navigateTo('home')" class="text-slate-300 hover:text-white font-medium transition-colors relative group">Home <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span></button>
+                    <button onclick="navigateTo('team')" class="text-slate-300 hover:text-white font-medium transition-colors relative group">Our Team <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span></button>
+                    <button onclick="navigateTo('packages')" class="text-slate-300 hover:text-white font-medium transition-colors relative group">Packages <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span></button>
+                    <button onclick="navigateTo('about')" class="text-slate-300 hover:text-white font-medium transition-colors relative group">About <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span></button>
+                    <button onclick="navigateTo('blog')" class="text-slate-300 hover:text-white font-medium transition-colors relative group">Blog <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span></button>
+                    <button onclick="navigateTo('contact')" class="text-slate-300 hover:text-white font-medium transition-colors relative group">Contact <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span></button>
+                    <button onclick="navigateTo('faq')" class="text-slate-300 hover:text-white font-medium transition-colors relative group">FAQ <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span></button>
+                    <button onclick="openBookingPage()" class="liquid-btn text-white px-7 py-2.5 rounded-full font-bold ml-2">Book Now</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none transition-colors">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden liquid-glass absolute w-full left-0 shadow-2xl border-t-0">
+            <div class="px-4 pt-4 pb-8 space-y-2">
+                <button onclick="navigateTo('home')" class="block w-full text-left px-4 py-3 text-slate-300 font-medium hover:text-white hover:bg-white/5 rounded-xl transition-all">Home</button>
+                <button onclick="navigateTo('team')" class="block w-full text-left px-4 py-3 text-slate-300 font-medium hover:text-white hover:bg-white/5 rounded-xl transition-all">Our Team</button>
+                <button onclick="navigateTo('packages')" class="block w-full text-left px-4 py-3 text-slate-300 font-medium hover:text-white hover:bg-white/5 rounded-xl transition-all">Packages</button>
+                <button onclick="navigateTo('about')" class="block w-full text-left px-4 py-3 text-slate-300 font-medium hover:text-white hover:bg-white/5 rounded-xl transition-all">About Us</button>
+                <button onclick="navigateTo('blog')" class="block w-full text-left px-4 py-3 text-slate-300 font-medium hover:text-white hover:bg-white/5 rounded-xl transition-all">Blog</button>
+                <button onclick="navigateTo('contact')" class="block w-full text-left px-4 py-3 text-slate-300 font-medium hover:text-white hover:bg-white/5 rounded-xl transition-all">Contact</button>
+                <button onclick="navigateTo('faq')" class="block w-full text-left px-4 py-3 text-slate-300 font-medium hover:text-white hover:bg-white/5 rounded-xl transition-all">FAQ</button>
+                <button onclick="openBookingPage()" class="w-full mt-4 bg-primary text-slate-900 font-bold px-6 py-4 rounded-xl shadow-lg active:bg-sky-400">Book Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. LANDING PAGE CONTENT -->
+    <div id="landing-page" class="page-content">
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center hero-bg overflow-hidden">
+            <!-- Animated Background Blobs -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-blob parallax-blob" data-speed="2"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-[120px] animate-blob animation-delay-2000 parallax-blob" data-speed="-2"></div>
+                <div class="absolute -bottom-32 left-1/2 w-80 h-80 bg-accent/10 rounded-full blur-[120px] animate-blob animation-delay-4000 parallax-blob" data-speed="1"></div>
+            </div>
+            
+            <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+                <div data-aos="fade-down" data-aos-duration="1000">
+                    <span class="inline-flex items-center py-1.5 px-5 rounded-full liquid-glass text-primary text-sm font-medium mb-8 hover:bg-white/5 cursor-default">
+                        <i class="fa-solid fa-earth-americas mr-2 animate-spin-slow"></i> Explore the World with Us
+                    </span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight tracking-tight drop-shadow-2xl" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+                    Discover Your Next <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-indigo-300 to-primary bg-[length:200%_auto] animate-[gradient_4s_linear_infinite]">Great Adventure</span>
+                </h1>
+                
+                <p class="text-slate-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-lg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    Curated travel experiences for the modern explorer. From neon cities to untouched nature, find your perfect getaway.
+                </p>
+                
+                <!-- Search Box -->
+                <div class="liquid-glass p-2 rounded-[2rem] max-w-4xl mx-auto transform translate-y-8 md:translate-y-0" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <form onsubmit="handleSearch(event)" class="flex flex-col md:flex-row gap-2 bg-black/20 rounded-[1.7rem] p-2 border border-white/5">
+                        <div class="flex-1 text-left px-5 py-3 md:border-r border-white/10 hover:bg-white/5 rounded-2xl transition-colors group">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 group-focus-within:text-primary transition-colors">Location</label>
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-location-dot text-slate-500 group-focus-within:text-primary mr-3 transition-colors"></i>
+                                <input type="text" placeholder="Where to?" class="w-full outline-none text-slate-200 font-medium placeholder-slate-600 bg-transparent">
+                            </div>
+                        </div>
+                        <div class="flex-1 text-left px-5 py-3 md:border-r border-white/10 hover:bg-white/5 rounded-2xl transition-colors group">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 group-focus-within:text-primary transition-colors">Date</label>
+                            <div class="flex items-center">
+                                <i class="fa-regular fa-calendar text-slate-500 group-focus-within:text-primary mr-3 transition-colors"></i>
+                                <input type="date" class="w-full outline-none text-slate-200 font-medium bg-transparent [color-scheme:dark]">
+                            </div>
+                        </div>
+                        <div class="flex-1 text-left px-5 py-3 hover:bg-white/5 rounded-2xl transition-colors group">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 group-focus-within:text-primary transition-colors">Guests</label>
+                            <div class="flex items-center">
+                                <i class="fa-regular fa-user text-slate-500 group-focus-within:text-primary mr-3 transition-colors"></i>
+                                <select class="w-full outline-none text-slate-200 font-medium bg-transparent cursor-pointer appearance-none">
+                                    <option class="bg-slate-900">1 Guest</option><option class="bg-slate-900">2 Guests</option><option class="bg-slate-900">3+ Guests</option><option class="bg-slate-900">Family</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="liquid-btn text-white rounded-2xl transition-all duration-300 flex items-center justify-center w-full md:w-24 md:h-auto py-4 md:py-0"><i class="fa-solid fa-magnifying-glass text-xl"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Destinations -->
+        <section id="destinations" class="py-28 bg-dark relative">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-[0.2]"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                    <div class="text-center md:text-left"><h2 class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">Top Destinations</h2><h3 class="text-4xl md:text-5xl font-bold text-white">Popular Tour Packages</h3></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="liquid-glass rounded-3xl overflow-hidden group hover:border-primary/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)]" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative h-72 card-zoom cursor-pointer"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"><div class="absolute top-4 right-4 liquid-glass px-4 py-1.5 rounded-full text-sm font-bold text-white border-white/20">$750</div></div>
+                        <div class="p-8 relative">
+                            <button onclick="openBookingPage('Bali Adventure')" class="absolute -top-6 right-8 liquid-btn bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center z-10"><i class="fa-solid fa-arrow-right"></i></button>
+                            <h4 class="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Mystical Bali Adventure</h4>
+                            <p class="text-slate-400 mb-6 line-clamp-2 text-sm leading-relaxed">Experience the spiritual culture and beautiful beaches of Bali in this comprehensive tour.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="liquid-glass rounded-3xl overflow-hidden group hover:border-primary/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)]" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-72 card-zoom cursor-pointer"><img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"><div class="absolute top-4 right-4 liquid-glass px-4 py-1.5 rounded-full text-sm font-bold text-white border-white/20">$1,200</div></div>
+                        <div class="p-8 relative">
+                            <button onclick="openBookingPage('Swiss Alps')" class="absolute -top-6 right-8 liquid-btn bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center z-10"><i class="fa-solid fa-arrow-right"></i></button>
+                            <h4 class="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Swiss Alps Skiing</h4>
+                            <p class="text-slate-400 mb-6 line-clamp-2 text-sm leading-relaxed">Enjoy the finest ski resorts and breathtaking snowy peaks in the heart of Switzerland.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="liquid-glass rounded-3xl overflow-hidden group hover:border-primary/50 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)]" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative h-72 card-zoom cursor-pointer"><img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"><div class="absolute top-4 right-4 liquid-glass px-4 py-1.5 rounded-full text-sm font-bold text-white border-white/20">$950</div></div>
+                        <div class="p-8 relative">
+                            <button onclick="openBookingPage('Venice')" class="absolute -top-6 right-8 liquid-btn bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center z-10"><i class="fa-solid fa-arrow-right"></i></button>
+                            <h4 class="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Romantic Venice</h4>
+                            <p class="text-slate-400 mb-6 line-clamp-2 text-sm leading-relaxed">A perfect getaway for couples. Gondola rides, Italian cuisine, and history await.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-20" data-aos="fade-up" data-aos-offset="0">
+                    <button onclick="navigateTo('packages')" class="liquid-btn text-white px-10 py-4 rounded-full font-bold text-lg inline-flex items-center group">View All Packages <i class="fa-solid fa-arrow-right-long ml-3 transform group-hover:translate-x-2 transition-transform"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-surface overflow-hidden relative">
+             <div class="absolute inset-0 bg-dark/50"></div>
+             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative group" data-aos="fade-right">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary to-indigo-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Traveler" class="tilt-card rounded-2xl shadow-2xl relative z-10 w-full object-cover h-[500px] grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3">Why Choose Us</h2>
+                        <h3 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-primary hover:to-white transition-all duration-300 cursor-default">We Make Your Travel <br> <span class="text-slate-500 hover:text-white transition-colors">Comfortable & Safe</span></h3>
+                        <p class="text-slate-400 mb-8 text-lg font-light">We don't just book trips; we craft memories. Our team of experts ensures every detail is perfect.</p>
+                        <ul class="space-y-6">
+                             <li class="flex items-center group p-4 rounded-xl transition-all duration-300 hover:bg-white/5 cursor-default border border-transparent hover:border-white/10" data-aos="fade-up" data-aos-delay="100"><div class="mr-4 w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-check"></i></div><span class="text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">Best Price Guarantee</span></li>
+                             <li class="flex items-center group p-4 rounded-xl transition-all duration-300 hover:bg-white/5 cursor-default border border-transparent hover:border-white/10" data-aos="fade-up" data-aos-delay="200"><div class="mr-4 w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-earth-americas"></i></div><span class="text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">Worldwide Coverage</span></li>
+                             <li class="flex items-center group p-4 rounded-xl transition-all duration-300 hover:bg-white/5 cursor-default border border-transparent hover:border-white/10" data-aos="fade-up" data-aos-delay="300"><div class="mr-4 w-12 h-12 rounded-full bg-surface border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300"><i class="fa-solid fa-headset"></i></div><span class="text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">24/7 Premium Support</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section (Landing Page Version - 2 Members) -->
+        <section id="team" class="py-24 bg-dark relative">
+             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-800/20 to-transparent"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                 <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3">Our Team</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-white">Meet Our Team Members</h3>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center gap-12">
+                     <div class="group relative w-full max-w-sm mx-auto md:mx-0 liquid-glass rounded-3xl p-2 border-0" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                            <div class="team-card-inner h-full w-full">
+                                <img src="images/Sachintha.jpeg" alt="David" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                                <h4 class="text-2xl font-bold">D.M.S Dilshan Madhushankha<br>ITBIN-2313-0137</h4>
+                                <p class="text-primary text-sm">Devops Engineer</p>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="group relative w-full max-w-sm mx-auto md:mx-0 liquid-glass rounded-3xl p-2 border-0" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                            <div class="team-card-inner h-full w-full">
+                                <img src="images/Dinithi.jpeg" alt="Sarah" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                                <h4 class="text-2xl font-bold">D.P.D Sharadha Pathirana<br>ITBIN-2313-00778</h4>
+                                <p class="text-primary text-sm">Full stack developer</p>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-24 bg-surface text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16" data-aos="fade-down"><h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3">Testimonials</h2><h3 class="text-4xl md:text-5xl font-bold hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-primary hover:to-white transition-all duration-300 cursor-default">What Travelers Say</h3></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                     <div class="liquid-glass p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:bg-primary/5 hover:border-primary/30 hover:shadow-[0_10px_40px_-10px_rgba(56,189,248,0.3)] group" data-aos="fade-up" data-aos-delay="0"><p class="text-slate-300 italic mb-6 leading-relaxed group-hover:text-white transition-colors">"The best travel agency I've ever used. The Bali trip was perfectly organized."</p><div class="flex items-center"><img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full mr-4 border-2 border-slate-700 group-hover:border-primary transition-colors"><div class="text-sm"><p class="font-bold text-white">Sarah Johnson</p><p class="text-slate-500">USA</p></div></div></div>
+                     <div class="liquid-glass p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:bg-primary/5 hover:border-primary/30 hover:shadow-[0_10px_40px_-10px_rgba(56,189,248,0.3)] group" data-aos="fade-up" data-aos-delay="100"><p class="text-slate-300 italic mb-6 leading-relaxed group-hover:text-white transition-colors">"Incredible value. Hotels were top-notch and guides were knowledgeable."</p><div class="flex items-center"><img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full mr-4 border-2 border-slate-700 group-hover:border-primary transition-colors"><div class="text-sm"><p class="font-bold text-white">Michael Chen</p><p class="text-slate-500">Canada</p></div></div></div>
+                     <div class="liquid-glass p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:bg-primary/5 hover:border-primary/30 hover:shadow-[0_10px_40px_-10px_rgba(56,189,248,0.3)] group" data-aos="fade-up" data-aos-delay="200"><p class="text-slate-300 italic mb-6 leading-relaxed group-hover:text-white transition-colors">"Customer service is unmatched. Helped us change itinerary instantly."</p><div class="flex items-center"><img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-12 h-12 rounded-full mr-4 border-2 border-slate-700 group-hover:border-primary transition-colors"><div class="text-sm"><p class="font-bold text-white">Emily Davis</p><p class="text-slate-500">UK</p></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="py-24 relative overflow-hidden bg-gradient-to-br from-primary via-sky-400 to-blue-500 text-slate-900 transition-all duration-700 bg-[length:200%_200%] hover:bg-[position:100%_100%] group">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <div class="max-w-4xl mx-auto px-4 text-center relative z-10" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight group-hover:scale-105 transition-transform duration-500">Subscribe to Get Special Offers</h2>
+                <form onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="zoom-in" data-aos-delay="400">
+                    <input type="email" placeholder="Your email address" class="px-8 py-4 rounded-full w-full sm:w-96 outline-none text-slate-900 bg-white/90 focus:bg-white shadow-xl placeholder-slate-500 border-2 border-transparent focus:border-slate-900 transition-all">
+                    <button type="submit" class="bg-slate-900 text-white px-10 py-4 rounded-full font-bold shadow-xl hover:bg-slate-800 hover:scale-105 transition-all">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- 2. PACKAGES PAGE CONTENT -->
+    <div id="packages-page" class="page-content hidden">
+        <section class="relative h-[60vh] flex items-center justify-center packages-hero-bg">
+            <div class="absolute inset-0 bg-dark/70"></div>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl" data-aos="fade-down">Explore All Destinations</h1>
+                <p class="text-xl text-slate-300 font-light" data-aos="fade-up">Find the perfect journey from our curated list of exclusive packages</p>
+            </div>
+        </section>
+        <div class="sticky top-20 z-40 bg-dark/90 backdrop-blur-md shadow-lg border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div class="flex flex-wrap gap-4 items-center justify-between">
+                    <div class="flex gap-4 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
+                        <button onclick="filterPackages('all', this)" class="filter-btn px-6 py-2 rounded-full bg-primary text-slate-900 text-sm font-bold whitespace-nowrap shadow-lg shadow-primary/20">All Tours</button>
+                        <button onclick="filterPackages('beach', this)" class="filter-btn px-6 py-2 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white text-sm font-medium whitespace-nowrap border border-slate-700">Beach</button>
+                        <button onclick="filterPackages('mountain', this)" class="filter-btn px-6 py-2 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white text-sm font-medium whitespace-nowrap border border-slate-700">Mountain</button>
+                        <button onclick="filterPackages('city', this)" class="filter-btn px-6 py-2 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white text-sm font-medium whitespace-nowrap border border-slate-700">City</button>
+                        <button onclick="filterPackages('safari', this)" class="filter-btn px-6 py-2 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white text-sm font-medium whitespace-nowrap border border-slate-700">Safari</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="py-16 bg-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div id="packages-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Package Cards -->
+                    <div class="package-card liquid-glass rounded-3xl overflow-hidden group hover:border-primary/50" data-category="beach" data-aos="fade-up"><div class="relative h-64 card-zoom cursor-pointer"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"><div class="absolute top-4 right-4 liquid-glass px-3 py-1 rounded-full text-sm font-bold text-white">$750</div></div><div class="p-6"><h4 class="text-xl font-bold text-white">Bali Adventure</h4><p class="text-slate-400 text-sm mb-4">5 Days &bull; Indonesia</p><button onclick="openBookingPage('Bali Adventure')" class="w-full py-3 rounded-xl border border-primary text-primary hover:bg-primary hover:text-slate-900 transition-all">View Details</button></div></div>
+                    <div class="package-card liquid-glass rounded-3xl overflow-hidden group hover:border-primary/50" data-category="mountain" data-aos="fade-up"><div class="relative h-64 card-zoom cursor-pointer"><img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"><div class="absolute top-4 right-4 liquid-glass px-3 py-1 rounded-full text-sm font-bold text-white">$1,200</div></div><div class="p-6"><h4 class="text-xl font-bold text-white">Swiss Alps Skiing</h4><p class="text-slate-400 text-sm mb-4">7 Days &bull; Switzerland</p><button onclick="openBookingPage('Swiss Alps')" class="w-full py-3 rounded-xl border border-primary text-primary hover:bg-primary hover:text-slate-900 transition-all">View Details</button></div></div>
+                    <div class="package-card liquid-glass rounded-3xl overflow-hidden group hover:border-primary/50" data-category="city" data-aos="fade-up"><div class="relative h-64 card-zoom cursor-pointer"><img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"><div class="absolute top-4 right-4 liquid-glass px-4 py-1.5 rounded-full text-sm font-bold text-white">$950</div></div><div class="p-6"><h4 class="text-xl font-bold text-white">Romantic Venice</h4><p class="text-slate-400 text-sm mb-4">6 Days &bull; Italy</p><button onclick="openBookingPage('Venice')" class="w-full py-3 rounded-xl border border-primary text-primary hover:bg-primary hover:text-slate-900 transition-all">View Details</button></div></div>
+                    <div class="package-card liquid-glass rounded-3xl overflow-hidden group hover:border-primary/50" data-category="city" data-aos="fade-up"><div class="relative h-64 card-zoom cursor-pointer"><img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"><div class="absolute top-4 right-4 liquid-glass px-3 py-1 rounded-full text-sm font-bold text-white">$2,100</div></div><div class="p-6"><h4 class="text-xl font-bold text-white">Neon Tokyo</h4><p class="text-slate-400 text-sm mb-4">9 Days &bull; Japan</p><button onclick="openBookingPage('Tokyo')" class="w-full py-3 rounded-xl border border-primary text-primary hover:bg-primary hover:text-slate-900 transition-all">View Details</button></div></div>
+                    <div class="package-card liquid-glass rounded-3xl overflow-hidden group hover:border-primary/50" data-category="beach" data-aos="fade-up"><div class="relative h-64 card-zoom cursor-pointer"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"><div class="absolute top-4 right-4 liquid-glass px-3 py-1 rounded-full text-sm font-bold text-white">$1,450</div></div><div class="p-6"><h4 class="text-xl font-bold text-white">Santorini Sunset</h4><p class="text-slate-400 text-sm mb-4">6 Days &bull; Greece</p><button onclick="openBookingPage('Santorini')" class="w-full py-3 rounded-xl border border-primary text-primary hover:bg-primary hover:text-slate-900 transition-all">View Details</button></div></div>
+                    <div class="package-card liquid-glass rounded-3xl overflow-hidden group hover:border-primary/50" data-category="safari" data-aos="fade-up"><div class="relative h-64 card-zoom cursor-pointer"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover"><div class="absolute top-4 right-4 liquid-glass px-3 py-1 rounded-full text-sm font-bold text-white">$3,200</div></div><div class="p-6"><h4 class="text-xl font-bold text-white">Masai Mara Safari</h4><p class="text-slate-400 text-sm mb-4">8 Days &bull; Kenya</p><button onclick="openBookingPage('Kenya')" class="w-full py-3 rounded-xl border border-primary text-primary hover:bg-primary hover:text-slate-900 transition-all">View Details</button></div></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 3. ABOUT US PAGE -->
+    <div id="about-page" class="page-content hidden">
+        <section class="relative h-[60vh] flex items-center justify-center about-hero-bg">
+            <div class="absolute inset-0 bg-dark/70"></div>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl" data-aos="fade-down">Our Story</h1>
+                <p class="text-xl text-slate-300 font-light max-w-2xl mx-auto" data-aos="fade-up">Passionate about creating unforgettable memories since 2010.</p>
+            </div>
+        </section>
+        <section class="py-20 bg-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-primary font-bold tracking-widest uppercase text-xs mb-3">Who We Are</h2>
+                        <h3 class="text-4xl font-bold text-white mb-6">We Are Explorers at Heart</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Wanderlust Travels began with a simple idea: to make the world accessible to everyone. What started as a small blog by two friends has grown into a premier travel agency connecting thousands of travelers to their dream destinations.</p>
+                        <div class="grid grid-cols-3 gap-6"><div class="text-center p-4 liquid-glass rounded-2xl"><h4 class="text-3xl font-bold text-primary">10k+</h4><p class="text-xs text-slate-400 mt-1">Happy Travelers</p></div><div class="text-center p-4 liquid-glass rounded-2xl"><h4 class="text-3xl font-bold text-primary">500+</h4><p class="text-xs text-slate-400 mt-1">Destinations</p></div><div class="text-center p-4 liquid-glass rounded-2xl"><h4 class="text-3xl font-bold text-primary">15</h4><p class="text-xs text-slate-400 mt-1">Years Active</p></div></div>
+                    </div>
+                    <div class="relative" data-aos="fade-left"><div class="liquid-glass p-2 rounded-3xl tilt-card"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Team" class="rounded-2xl w-full"></div></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 4. BLOG PAGE -->
+    <div id="blog-page" class="page-content hidden">
+        <section class="relative h-[50vh] flex items-center justify-center blog-hero-bg">
+            <div class="absolute inset-0 bg-dark/70"></div>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4" data-aos="fade-down">Travel Journal</h1>
+                <p class="text-xl text-slate-300" data-aos="fade-up">Tips, guides, and stories from around the globe.</p>
+            </div>
+        </section>
+        <section class="py-20 bg-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="liquid-glass p-4 rounded-3xl group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up"><div class="relative h-56 rounded-2xl overflow-hidden mb-4 card-zoom"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover"><span class="absolute top-3 left-3 liquid-glass px-3 py-1 rounded-full text-xs font-bold text-white border-white/10">Guides</span></div><div class="px-2 pb-2"><div class="text-slate-400 text-xs mb-2">Oct 12, 2024</div><h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary">10 Hidden Gems in Switzerland</h3><p class="text-slate-400 text-sm line-clamp-2">Discover the secret spots that most tourists miss.</p></div></div>
+                    <div class="liquid-glass p-4 rounded-3xl group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="100"><div class="relative h-56 rounded-2xl overflow-hidden mb-4 card-zoom"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover"><span class="absolute top-3 left-3 liquid-glass px-3 py-1 rounded-full text-xs font-bold text-white border-white/10">Tips</span></div><div class="px-2 pb-2"><div class="text-slate-400 text-xs mb-2">Sep 28, 2024</div><h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary">How to Pack Light</h3><p class="text-slate-400 text-sm line-clamp-2">Essential packing hacks for the minimalist traveler.</p></div></div>
+                    <div class="liquid-glass p-4 rounded-3xl group hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="200"><div class="relative h-56 rounded-2xl overflow-hidden mb-4 card-zoom"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover"><span class="absolute top-3 left-3 liquid-glass px-3 py-1 rounded-full text-xs font-bold text-white border-white/10">Food</span></div><div class="px-2 pb-2"><div class="text-slate-400 text-xs mb-2">Sep 15, 2024</div><h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary">Best Street Food in Bangkok</h3><p class="text-slate-400 text-sm line-clamp-2">A culinary journey through the vibrant streets.</p></div></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 5. CONTACT PAGE -->
+    <div id="contact-page" class="page-content hidden">
+        <section class="relative h-[50vh] flex items-center justify-center contact-hero-bg">
+            <div class="absolute inset-0 bg-dark/70"></div>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4" data-aos="fade-down">Get in Touch</h1>
+                <p class="text-xl text-slate-300" data-aos="fade-up">We'd love to hear from you. Let's plan your next adventure.</p>
+            </div>
+        </section>
+        <section class="py-20 bg-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div data-aos="fade-right"><h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3><div class="space-y-6"><div class="flex items-start liquid-glass p-4 rounded-xl"><div class="bg-primary/20 p-3 rounded-lg mr-4 text-primary"><i class="fa-solid fa-location-dot text-xl"></i></div><div><h4 class="font-bold text-white">Our Office</h4><p class="text-slate-400 text-sm">123 Travel Street, Suite 456<br>New York, NY 10012</p></div></div><div class="flex items-start liquid-glass p-4 rounded-xl"><div class="bg-primary/20 p-3 rounded-lg mr-4 text-primary"><i class="fa-solid fa-phone text-xl"></i></div><div><h4 class="font-bold text-white">Phone</h4><p class="text-slate-400 text-sm">+1 (555) 123-4567</p></div></div></div></div>
+                    <div class="liquid-glass p-8 rounded-3xl" data-aos="fade-left"><h3 class="text-2xl font-bold text-white mb-6">Send us a Message</h3><form class="space-y-4"><div class="grid grid-cols-2 gap-4"><input type="text" placeholder="First Name" class="w-full bg-dark/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-primary outline-none"><input type="text" placeholder="Last Name" class="w-full bg-dark/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-primary outline-none"></div><input type="email" placeholder="Email Address" class="w-full bg-dark/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-primary outline-none"><textarea rows="4" placeholder="Your Message" class="w-full bg-dark/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-primary outline-none"></textarea><button type="button" onclick="showToast('Message sent successfully!')" class="w-full bg-primary hover:bg-sky-400 text-slate-900 font-bold py-3 rounded-xl transition-all">Send Message</button></form></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 6. FAQ PAGE -->
+    <div id="faq-page" class="page-content hidden">
+        <section class="relative h-[50vh] flex items-center justify-center faq-hero-bg">
+            <div class="absolute inset-0 bg-dark/70"></div>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-2xl" data-aos="fade-down">Help Center</h1>
+                <p class="text-xl text-slate-300 font-light" data-aos="fade-up">Frequently asked questions and support.</p>
+            </div>
+        </section>
+        <section class="py-20 bg-dark min-h-screen">
+            <div class="max-w-3xl mx-auto px-4 space-y-4">
+                <div class="liquid-glass rounded-2xl overflow-hidden accordion-item group" data-aos="fade-up"><button class="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none" onclick="toggleAccordion(this)"><span class="font-bold text-white text-lg group-hover:text-primary">How do I book a trip?</span><div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center"><i class="fa-solid fa-chevron-down text-primary accordion-icon"></i></div></button><div class="accordion-content bg-black/20"><p class="px-6 pb-6 text-slate-400 text-sm">Simply click the "Book Now" button on any package or the main menu.</p></div></div>
+                <div class="liquid-glass rounded-2xl overflow-hidden accordion-item group" data-aos="fade-up" data-aos-delay="100"><button class="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none" onclick="toggleAccordion(this)"><span class="font-bold text-white text-lg group-hover:text-primary">Is flight included?</span><div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center"><i class="fa-solid fa-chevron-down text-primary accordion-icon"></i></div></button><div class="accordion-content bg-black/20"><p class="px-6 pb-6 text-slate-400 text-sm">Most packages are land-only, but flights can be arranged.</p></div></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 7. OUR TEAM PAGE (2 Members, Improved Hover) -->
+    <div id="team-page" class="page-content hidden">
+        <section class="relative h-[60vh] flex items-center justify-center team-hero-bg">
+            <div class="absolute inset-0 bg-dark/70"></div>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl" data-aos="fade-down">Our Expert Team</h1>
+                <p class="text-xl text-slate-300 font-light" data-aos="fade-up">Passionate professionals dedicated to making your travel dreams come true</p>
+            </div>
+        </section>
+        <section class="py-20 bg-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                    <!-- Member 1 -->
+                    <div class="liquid-glass p-3 rounded-3xl group hover:-translate-y-2 transition-all duration-300 hover:border-primary/50 relative hover:shadow-[0_0_30px_rgba(56,189,248,0.2)]" data-aos="fade-up" data-aos-delay="0">
+                        <div class="absolute top-6 right-6 z-20 font-bold text-4xl text-white/10 group-hover:text-primary/20 transition-colors duration-300">01</div>
+                        <div class="relative h-96 rounded-2xl overflow-hidden mb-4 team-card-inner">
+                            <img src="images/Sachintha.jpeg" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <h4 class="text-xl font-bold text-white group-hover:text-primary transition-colors">D.M.S Dilshan Madhushankha<br>ITBIN-2313-0137</h4>
+                                <p class="text-primary text-xs font-bold uppercase tracking-wider">Devops Engineer</p>
+                            </div>
+                        </div>
+                        <div class="px-2 pb-2">
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2 group-hover:text-white transition-colors">Automates and manages systems to ensure fast, reliable, and scalable software delivery.</p>
+                            <div class="flex space-x-3 text-slate-400">
+                                <a href="#" class="hover:text-primary transition-colors team-social-item"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                                <a href="#" class="hover:text-primary transition-colors team-social-item"><i class="fa-brands fa-twitter text-lg"></i></a>
+                                <a href="#" class="hover:text-primary transition-colors team-social-item"><i class="fa-solid fa-envelope text-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Member 2 -->
+                    <div class="liquid-glass p-3 rounded-3xl group hover:-translate-y-2 transition-all duration-300 hover:border-primary/50 relative hover:shadow-[0_0_30px_rgba(56,189,248,0.2)]" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute top-6 right-6 z-20 font-bold text-4xl text-white/10 group-hover:text-primary/20 transition-colors duration-300">02</div>
+                        <div class="relative h-96 rounded-2xl overflow-hidden mb-4 team-card-inner">
+                            <img src="images/Dinithi.jpeg" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4">
+                                <h4 class="text-xl font-bold text-white group-hover:text-primary transition-colors">D.P.D Sharadha Pathirana<br>ITBIN-2313-00778</h4>
+                                <p class="text-primary text-xs font-bold uppercase tracking-wider">Full stack developer</p>
+                            </div>
+                        </div>
+                        <div class="px-2 pb-2">
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2 group-hover:text-white transition-colors">A Full Stack Engineer builds complete applications by working on both frontend and backend technologies. They handle user interfaces, server logic, databases, and integrations to deliver end-to-end solutions</p>
+                            <div class="flex space-x-3 text-slate-400">
+                                <a href="#" class="hover:text-primary transition-colors team-social-item"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                                <a href="#" class="hover:text-primary transition-colors team-social-item"><i class="fa-brands fa-twitter text-lg"></i></a>
+                                <a href="#" class="hover:text-primary transition-colors team-social-item"><i class="fa-solid fa-envelope text-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark pt-20 pb-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div><div class="flex items-center gap-2 mb-6"><i class="fa-solid fa-plane-departure text-primary text-3xl"></i><span class="font-bold text-2xl text-white">Wander<span class="text-primary">lust</span></span></div><p class="text-slate-400 text-sm mb-8">Crafting unforgettable journeys.</p><div class="flex space-x-4"><a href="#" class="text-slate-400 hover:text-white"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="text-slate-400 hover:text-white"><i class="fa-brands fa-twitter"></i></a><a href="#" class="text-slate-400 hover:text-white"><i class="fa-brands fa-instagram"></i></a></div></div>
+                <div><h4 class="text-white font-bold mb-6">Quick Links</h4><ul class="space-y-2 text-sm text-slate-400"><li><button onclick="navigateTo('home')" class="hover:text-primary">Home</button></li><li><button onclick="navigateTo('packages')" class="hover:text-primary">Packages</button></li><li><button onclick="navigateTo('about')" class="hover:text-primary">About Us</button></li></ul></div>
+                <div><h4 class="text-white font-bold mb-6">Support</h4><ul class="space-y-2 text-sm text-slate-400"><li><button onclick="navigateTo('faq')" class="hover:text-primary">Help Center</button></li><li><a href="#" class="hover:text-primary">Privacy Policy</a></li></ul></div>
+                <div><h4 class="text-white font-bold mb-6">Contact</h4><ul class="space-y-4 text-sm text-slate-400"><li class="flex items-center"><i class="fa-solid fa-phone text-primary mr-3"></i>+1 (555) 123-4567</li><li class="flex items-center"><i class="fa-solid fa-envelope text-primary mr-3"></i>hello@wanderlust.com</li></ul></div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm"><p>&copy; 2024 Wanderlust Travels. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <!-- Full Page Booking Overlay -->
+    <div id="booking-page" class="fixed inset-0 z-[100] bg-dark transform translate-y-full flex flex-col overflow-y-auto">
+        <button onclick="closeBookingPage()" class="fixed top-6 right-6 z-50 bg-slate-800/80 backdrop-blur-md hover:bg-red-500 hover:text-white text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <div class="flex flex-col lg:flex-row min-h-screen">
+            <div class="w-full lg:w-5/12 relative h-64 lg:h-auto bg-slate-900 hidden md:block"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="absolute inset-0 w-full h-full object-cover opacity-60"><div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div><div class="absolute bottom-0 left-0 w-full p-12 text-white z-10"><h3 class="text-4xl font-bold leading-tight mb-4">"Travel is the only thing you buy that makes you richer."</h3></div></div>
+            <div class="w-full lg:w-7/12 p-6 md:p-12 lg:p-20 flex flex-col justify-center bg-dark relative"><div class="max-w-2xl mx-auto w-full"><h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Book Your Next Trip</h2><form onsubmit="handleBooking(event)" class="space-y-6"><input type="text" id="modal-destination" class="w-full bg-transparent border-b border-slate-700 py-3 text-white placeholder-slate-600 focus:border-primary outline-none" placeholder="Destination"><div class="grid grid-cols-2 gap-6"><input type="text" required class="w-full bg-transparent border-b border-slate-700 py-3 text-white placeholder-slate-600 focus:border-primary outline-none" placeholder="Name"><input type="tel" required class="w-full bg-transparent border-b border-slate-700 py-3 text-white placeholder-slate-600 focus:border-primary outline-none" placeholder="Phone"></div><input type="email" required class="w-full bg-transparent border-b border-slate-700 py-3 text-white placeholder-slate-600 focus:border-primary outline-none" placeholder="Email"><button type="submit" class="w-full bg-primary hover:bg-sky-400 text-slate-900 font-bold py-4 rounded-xl transition-all mt-4">Confirm Booking</button></form></div></div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-8 right-8 liquid-glass border-l-4 border-l-green-500 rounded-lg p-5 transform translate-x-full opacity-0 transition-all duration-500 z-[110] flex items-center min-w-[300px]">
+        <div class="text-green-500 mr-4 text-2xl"><i class="fa-solid fa-circle-check"></i></div>
+        <div><h4 class="font-bold text-white">Success!</h4><p class="text-slate-400 text-sm" id="toast-message">Operation completed successfully.</p></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+
+    <!-- Local JS -->
+    <script src="app.js" defer></script>
+</body>
+</html>
